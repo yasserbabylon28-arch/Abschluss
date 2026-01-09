@@ -755,21 +755,78 @@
         .voter-item {
             padding: 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 16px;
             transition: var(--transition);
+            background: rgba(255, 255, 255, 0.02);
+            margin-bottom: 12px;
+            border-radius: var(--radius);
         }
 
         .voter-item:hover {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(4px);
         }
 
         .voter-item:last-child {
             border-bottom: none;
         }
 
-        .export-btn, .reset-btn {
+        .voter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .voter-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-light);
+        }
+
+        .voter-date {
+            font-size: 13px;
+            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .voter-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .voter-detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .voter-detail-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .voter-detail-value {
+            font-size: 15px;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .voter-price {
+            font-size: 18px;
+            color: var(--success);
+            font-weight: 800;
+        }
+
+        .export-btn, .reset-btn, .refresh-btn {
             padding: 16px 32px;
             border: none;
             border-radius: var(--radius-lg);
@@ -803,6 +860,17 @@
         .reset-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(239, 68, 68, 0.6);
+        }
+
+        .refresh-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+        }
+
+        .refresh-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.6);
         }
 
         /* Progress Indicator */
@@ -863,9 +931,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .voter-item {
+            .voter-details {
                 grid-template-columns: 1fr;
-                gap: 8px;
             }
 
             .colors-grid {
@@ -914,6 +981,37 @@
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
         }
+
+        /* New Order Badge */
+        .new-order-badge {
+            background: linear-gradient(135deg, var(--accent), #be185d);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 8px rgba(236, 72, 153, 0.4);
+        }
+
+        /* Total Revenue Card */
+        .revenue-highlight {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.15));
+            border-color: var(--success) !important;
+        }
+
+        .no-orders-message {
+            text-align: center;
+            padding: 60px 24px;
+            color: var(--text-light);
+        }
+
+        .no-orders-message h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--primary-light);
+        }
     </style>
 </head>
 <body>
@@ -928,11 +1026,11 @@
         <!-- Mode Toggle -->
         <div class="mode-toggle">
             <button class="mode-btn active" onclick="switchMode('user')">
-                <span>🎨</span>
+                <span>👤</span>
                 <span>Konfigurator</span>
             </button>
             <button class="mode-btn" onclick="switchMode('admin')">
-                <span>👑</span>
+                <span>🔒</span>
                 <span>Admin</span>
             </button>
         </div>
@@ -950,7 +1048,7 @@
                     <span>Typ</span>
                 </div>
                 <div class="progress-step" id="step3">
-                    <span class="progress-step-icon">🌈</span>
+                    <span class="progress-step-icon">🎨</span>
                     <span>Farbe</span>
                 </div>
                 <div class="progress-step" id="step4">
@@ -1063,38 +1161,38 @@
                     <h2>Wähle deinen Hoodie-Typ</h2>
                 </div>
                 <div class="hoodie-types-grid">
-                    <div class="hoodie-type-card" onclick="selectType(1, this, 'Basic Hoodie', 29.99)">
+                    <div class="hoodie-type-card" onclick="selectType(1, this, 'Basic Hoodie')">
                         <div class="hoodie-type-icon">👕</div>
                         <div class="hoodie-type-name">Basic Hoodie</div>
-                     
+                       
                     </div>
-                    <div class="hoodie-type-card" onclick="selectType(2, this, 'Basic ZIP Hoodie', 34.99)">
+                    <div class="hoodie-type-card" onclick="selectType(2, this, 'Basic ZIP Hoodie')">
                         <div class="hoodie-type-icon">🧥</div>
                         <div class="hoodie-type-name">Basic ZIP Hoodie</div>
                         
                     </div>
-                    <div class="hoodie-type-card" onclick="selectType(3, this, 'Basic Sweater', 27.99)">
+                    <div class="hoodie-type-card" onclick="selectType(3, this, 'Basic Sweater')">
                         <div class="hoodie-type-icon">👔</div>
                         <div class="hoodie-type-name">Basic Sweater</div>
-                       
+                        
                     </div>
-                    <div class="hoodie-type-card" onclick="selectType(4, this, 'Heavyweight Signatur Oversize Hoodie', 44.99)">
-                        <div class="hoodie-type-icon">🎽</div>
+                    <div class="hoodie-type-card" onclick="selectType(4, this, 'Heavyweight Signatur Oversize Hoodie')">
+                        <div class="hoodie-type-icon">💪</div>
                         <div class="hoodie-type-name">Heavyweight Signatur Oversize Hoodie</div>
-                        
+                      
                     </div>
-                    <div class="hoodie-type-card" onclick="selectType(5, this, 'Heavyweight Signatur Oversize Zip Hoodie', 49.99)">
-                        <div class="hoodie-type-icon">🧥</div>
+                    <div class="hoodie-type-card" onclick="selectType(5, this, 'Heavyweight Signatur Oversize Zip Hoodie')">
+                        <div class="hoodie-type-icon">🔥</div>
                         <div class="hoodie-type-name">Heavyweight Signatur Oversize Zip Hoodie</div>
-                        
-                    </div>
-                    <div class="hoodie-type-card" onclick="selectType(6, this, 'Normal Oversize Hoodie', 37.99)">
-                        <div class="hoodie-type-icon">👕</div>
-                        <div class="hoodie-type-name">Normal Oversize Hoodie</div>
                        
                     </div>
-                    <div class="hoodie-type-card" onclick="selectType(7, this, 'Ultra Heavy Oversize Hoodie', 54.99)">
-                        <div class="hoodie-type-icon">🎿</div>
+                    <div class="hoodie-type-card" onclick="selectType(6, this, 'Normal Oversize Hoodie')">
+                        <div class="hoodie-type-icon">🌟</div>
+                        <div class="hoodie-type-name">Normal Oversize Hoodie</div>
+                     
+                    </div>
+                    <div class="hoodie-type-card" onclick="selectType(7, this, 'Ultra Heavy Oversize Hoodie')">
+                        <div class="hoodie-type-icon">⚡</div>
                         <div class="hoodie-type-name">Ultra Heavy Oversize Hoodie</div>
                    
                     </div>
@@ -1141,7 +1239,7 @@
                     <span>Abstimmen</span>
                 </button>
                 <div class="success-message" id="successMsg">
-                    ✓ Perfekt! Deine Auswahl wurde gespeichert.
+                    ✅ Perfekt! Deine Auswahl wurde gespeichert.
                 </div>
             </div>
         </div>
@@ -1149,50 +1247,59 @@
         <!-- ADMIN VIEW -->
         <div class="admin-view" id="adminView">
             <div class="admin-login" id="adminLogin">
-                <h2 style="margin-bottom: 32px; background: linear-gradient(135deg, var(--primary-light), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🔐 Admin Login</h2>
+                <h2 style="margin-bottom: 32px; background: linear-gradient(135deg, var(--primary-light), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🔒 Admin Login</h2>
                 <input type="password" id="adminPassword" class="name-input" placeholder="Passwort" style="width: 100%;">
                 <button class="submit-btn" onclick="adminLogin()" style="width: 100%; margin: 24px 0;">Einloggen</button>
-                <p style="color: var(--text-light); font-size: 14px;">Standard-Passwort: admin123</p>
+                <p style="color: var(--text-light); font-size: 14px;">Standard-Passwort: onkelvononkel</p>
             </div>
 
             <div class="admin-dashboard" id="adminDashboard">
                 <div class="dashboard-header">
                     <h2>📊 Admin Dashboard</h2>
+                    <p style="color: var(--text-light); margin-top: 12px;">Alle Bestellungen im Überblick</p>
                 </div>
                 
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <h3>Gesamt Bestellungen</h3>
+                        <h3>📦 Gesamt Bestellungen</h3>
                         <div class="stat-number" id="totalVotes">0</div>
                     </div>
-                    <div class="stat-card">
-                        <h3>Beliebtestes Design</h3>
-                        <div class="stat-number" id="leadingDesign" style="font-size: 24px;">-</div>
+                    <div class="stat-card revenue-highlight">
+                        <h3>💰 Gesamtumsatz</h3>
+                        <div class="stat-number" id="totalRevenue">0€</div>
                     </div>
                     <div class="stat-card">
-                        <h3>Top Hoodie-Typ</h3>
-                        <div class="stat-number" id="leadingType" style="font-size: 20px;">-</div>
+                        <h3>🎨 Beliebtestes Design</h3>
+                        <div class="stat-number" style="font-size: 24px;" id="leadingDesign">-</div>
                     </div>
                     <div class="stat-card">
-                        <h3>Top Farbe</h3>
-                        <div class="stat-number" id="leadingColor" style="font-size: 24px;">-</div>
+                        <h3>👕 Beliebtester Typ</h3>
+                        <div class="stat-number" style="font-size: 24px;" id="leadingType">-</div>
                     </div>
+                    <div class="stat-card">
+                        <h3>🎨 Beliebteste Farbe</h3>
+                        <div class="stat-number" style="font-size: 24px;" id="leadingColor">-</div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin: 32px 0;">
+                    <button class="refresh-btn" onclick="loadAdminStats()">
+                        <span>🔄</span>
+                        <span>Aktualisieren</span>
+                    </button>
+                    <button class="export-btn" onclick="exportToCSV()">
+                        <span>📥</span>
+                        <span>Als CSV Exportieren</span>
+                    </button>
+                    <button class="reset-btn" onclick="resetAllVotes()">
+                        <span>🗑️</span>
+                        <span>Alle Löschen</span>
+                    </button>
                 </div>
 
                 <div class="voters-list">
                     <h3>📋 Alle Bestellungen</h3>
                     <div id="votersList"></div>
-                </div>
-
-                <div style="text-align: center; margin-top: 32px;">
-                    <button class="export-btn" onclick="exportToCSV()">
-                        <span>📥</span>
-                        <span>Als CSV exportieren</span>
-                    </button>
-                    <button class="reset-btn" onclick="resetAllVotes()">
-                        <span>🗑️</span>
-                        <span>Alle Stimmen löschen</span>
-                    </button>
                 </div>
             </div>
         </div>
@@ -1332,6 +1439,13 @@
                 updateProgress();
                 checkCompletion();
             });
+
+            // Enter-Taste für Admin-Login
+            document.getElementById('adminPassword').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    adminLogin();
+                }
+            });
         });
 
         // Submit Vote
@@ -1342,10 +1456,14 @@
             }
 
             const votes = JSON.parse(localStorage.getItem('hoodieVotes') || '[]');
-            votes.push({
+            
+            const newOrder = {
                 ...currentSelection,
-                timestamp: new Date().toISOString()
-            });
+                timestamp: new Date().toISOString(),
+                orderNumber: votes.length + 1
+            };
+            
+            votes.push(newOrder);
             localStorage.setItem('hoodieVotes', JSON.stringify(votes));
 
             document.getElementById('successMsg').classList.add('show');
@@ -1408,6 +1526,18 @@
             return JSON.parse(localStorage.getItem('hoodieVotes') || '[]');
         }
 
+        // Format Date
+        function formatDate(isoString) {
+            const date = new Date(isoString);
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            
+            return `${day}.${month}.${year} um ${hours}:${minutes} Uhr`;
+        }
+
         // Load Admin Stats
         function loadAdminStats() {
             const votes = loadVotes();
@@ -1415,11 +1545,20 @@
             // Total votes
             document.getElementById('totalVotes').textContent = votes.length;
 
+            // Calculate total revenue
+            const totalRevenue = votes.reduce((sum, vote) => sum + (vote.price || 0), 0);
+            document.getElementById('totalRevenue').textContent = totalRevenue.toFixed(2) + '€';
+
             if (votes.length === 0) {
                 document.getElementById('leadingDesign').textContent = '-';
                 document.getElementById('leadingType').textContent = '-';
                 document.getElementById('leadingColor').textContent = '-';
-                document.getElementById('votersList').innerHTML = '<p style="color: var(--text-light); text-align: center; padding: 24px;">Noch keine Bestellungen</p>';
+                document.getElementById('votersList').innerHTML = `
+                    <div class="no-orders-message">
+                        <h3>📭 Noch keine Bestellungen</h3>
+                        <p>Sobald jemand eine Bestellung aufgibt, erscheint sie hier.</p>
+                    </div>
+                `;
                 return;
             }
 
@@ -1443,16 +1582,44 @@
             document.getElementById('leadingType').textContent = topType + ` (${typeCount[topType]}x)`;
             document.getElementById('leadingColor').textContent = topColor + ` (${colorCount[topColor]}x)`;
 
-            // Display voters list
+            // Display voters list - NEUESTE ZUERST
             const votersList = document.getElementById('votersList');
-            votersList.innerHTML = votes.map((vote, index) => `
-                <div class="voter-item">
-                    <strong>${vote.voterName}</strong>
-                    <span>${vote.designName}</span>
-                    <span>${vote.typeName}</span>
-                    <span>${vote.colorName}</span>
-                </div>
-            `).join('');
+            const reversedVotes = [...votes].reverse(); // Neueste zuerst
+            
+            votersList.innerHTML = reversedVotes.map((vote, index) => {
+                const isNew = index < 3; // Markiere die 3 neuesten als "NEU"
+                return `
+                    <div class="voter-item">
+                        <div class="voter-header">
+                            <div class="voter-name">
+                                ${isNew ? '<span class="new-order-badge">NEU</span> ' : ''}
+                                ${vote.voterName}
+                            </div>
+                            <div class="voter-date">
+                                📅 ${formatDate(vote.timestamp)}
+                            </div>
+                        </div>
+                        <div class="voter-details">
+                            <div class="voter-detail-item">
+                                <span class="voter-detail-label">🎨 Design</span>
+                                <span class="voter-detail-value">${vote.designName}</span>
+                            </div>
+                            <div class="voter-detail-item">
+                                <span class="voter-detail-label">👕 Hoodie-Typ</span>
+                                <span class="voter-detail-value">${vote.typeName}</span>
+                            </div>
+                            <div class="voter-detail-item">
+                                <span class="voter-detail-label">🎨 Farbe</span>
+                                <span class="voter-detail-value">${vote.colorName}</span>
+                            </div>
+                            <div class="voter-detail-item">
+                                <span class="voter-detail-label">💰 Preis</span>
+                                <span class="voter-price">${vote.price.toFixed(2)}€</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
         }
 
         // Export to CSV
@@ -1463,25 +1630,32 @@
                 return;
             }
 
-            let csv = 'Name,Design,Hoodie-Typ,Farbe,Preis,Zeitstempel\n';
-            votes.forEach(vote => {
-                csv += `"${vote.voterName}","${vote.designName}","${vote.typeName}","${vote.colorName}","${vote.price}","${vote.timestamp}"\n`;
+            let csv = 'Bestellnummer,Name,Design,Hoodie-Typ,Farbe,Preis (EUR),Zeitstempel\n';
+            votes.forEach((vote, index) => {
+                const date = formatDate(vote.timestamp);
+                csv += `"${index + 1}","${vote.voterName}","${vote.designName}","${vote.typeName}","${vote.colorName}","${vote.price.toFixed(2)}","${date}"\n`;
             });
 
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            // BOM für korrekte Umlaute in Excel
+            const BOM = '\uFEFF';
+            const blob = new Blob([BOM + csv], { type: 'text/csv;charset=utf-8;' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
             a.download = 'hoodie-bestellungen-' + new Date().toISOString().split('T')[0] + '.csv';
             a.click();
+            
+            alert('CSV-Datei wurde erfolgreich exportiert!');
         }
 
         // Reset All Votes
         function resetAllVotes() {
-            if (confirm('Wirklich ALLE Stimmen löschen? Dies kann nicht rückgängig gemacht werden!')) {
-                localStorage.removeItem('hoodieVotes');
-                loadAdminStats();
-                alert('Alle Stimmen wurden gelöscht!');
+            if (confirm('Wirklich ALLE Bestellungen löschen? Dies kann nicht rückgängig gemacht werden!')) {
+                if (confirm('Bist du dir ABSOLUT SICHER? Alle Daten gehen verloren!')) {
+                    localStorage.removeItem('hoodieVotes');
+                    loadAdminStats();
+                    alert('✅ Alle Bestellungen wurden gelöscht!');
+                }
             }
         }
     </script>
