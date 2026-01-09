@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abschlusshoodies 2025 - Premium Konfigurator</title>
+    <title>Abschlusshoodies 2026 - Demokratische Wahl</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -54,7 +54,6 @@
             position: relative;
         }
 
-        /* Animated Background */
         body::before {
             content: '';
             position: fixed;
@@ -84,7 +83,6 @@
             z-index: 1;
         }
 
-        /* Header */
         .header {
             text-align: center;
             padding: 60px 0 40px;
@@ -131,7 +129,6 @@
             font-weight: 500;
         }
 
-        /* Mode Toggle */
         .mode-toggle {
             display: flex;
             gap: 12px;
@@ -174,7 +171,6 @@
             box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
         }
 
-        /* Section Card */
         .section-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
@@ -226,7 +222,6 @@
             background-clip: text;
         }
 
-        /* Design Gallery */
         .designs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -344,7 +339,6 @@
             line-height: 1.6;
         }
 
-        /* Hoodie Types */
         .hoodie-types-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -421,7 +415,6 @@
             font-weight: 800;
         }
 
-        /* Colors */
         .colors-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -491,7 +484,6 @@
             font-weight: 700;
         }
 
-        /* Summary */
         .summary-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -527,7 +519,6 @@
             line-height: 1.4;
         }
 
-        /* Vote Section */
         .vote-section {
             text-align: center;
         }
@@ -648,7 +639,6 @@
             }
         }
 
-        /* Admin View */
         .admin-view {
             display: none;
         }
@@ -873,7 +863,6 @@
             box-shadow: 0 8px 24px rgba(99, 102, 241, 0.6);
         }
 
-        /* Progress Indicator */
         .progress-indicator {
             display: flex;
             justify-content: center;
@@ -909,7 +898,199 @@
             font-size: 20px;
         }
 
-        /* Responsive */
+        /* NEW: Statistics Styles */
+        .vote-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .vote-stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 28px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .vote-stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .vote-stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .vote-stat-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        .vote-stat-total {
+            font-size: 14px;
+            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .vote-stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .vote-stat-item:last-child {
+            border-bottom: none;
+        }
+
+        .vote-stat-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .vote-stat-color {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .vote-stat-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--white);
+            flex: 1;
+        }
+
+        .vote-stat-bar-container {
+            width: 150px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .vote-stat-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .vote-stat-numbers {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            min-width: 100px;
+            justify-content: flex-end;
+        }
+
+        .vote-stat-count {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--white);
+            min-width: 30px;
+            text-align: right;
+        }
+
+        .vote-stat-percent {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary-light);
+            min-width: 50px;
+            text-align: right;
+        }
+
+        .vote-stat-leader {
+            background: rgba(99, 102, 241, 0.1);
+            border-left: 4px solid var(--primary);
+        }
+
+        .vote-stat-leader-badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .statistics-section {
+            margin-top: 48px;
+        }
+
+        .statistics-section h3 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .no-votes-message {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-lg);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .no-votes-message h4 {
+            font-size: 20px;
+            color: var(--primary-light);
+            margin-bottom: 12px;
+        }
+
+        .new-order-badge {
+            background: linear-gradient(135deg, var(--accent), #be185d);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 8px rgba(236, 72, 153, 0.4);
+        }
+
+        .revenue-highlight {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.15));
+            border-color: var(--success) !important;
+        }
+
+        .no-orders-message {
+            text-align: center;
+            padding: 60px 24px;
+            color: var(--text-light);
+        }
+
+        .no-orders-message h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--primary-light);
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 0 16px;
@@ -947,9 +1128,12 @@
                 width: 100%;
                 justify-content: center;
             }
+
+            .vote-stats-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* Loading Animation */
         .loading {
             display: inline-block;
             width: 20px;
@@ -964,7 +1148,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 12px;
         }
@@ -981,37 +1164,6 @@
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
         }
-
-        /* New Order Badge */
-        .new-order-badge {
-            background: linear-gradient(135deg, var(--accent), #be185d);
-            color: var(--white);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            box-shadow: 0 2px 8px rgba(236, 72, 153, 0.4);
-        }
-
-        /* Total Revenue Card */
-        .revenue-highlight {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.15));
-            border-color: var(--success) !important;
-        }
-
-        .no-orders-message {
-            text-align: center;
-            padding: 60px 24px;
-            color: var(--text-light);
-        }
-
-        .no-orders-message h3 {
-            font-size: 24px;
-            margin-bottom: 12px;
-            color: var(--primary-light);
-        }
     </style>
 </head>
 <body>
@@ -1019,8 +1171,8 @@
         <!-- Header -->
         <div class="header">
             <div class="logo">👕</div>
-            <h1>Abschlusshoodies 2025</h1>
-            <p class="subtitle">Premium Konfigurator mit Style</p>
+            <h1>Abschlusshoodies 2026</h1>
+            <p class="subtitle">Demokratische Wahl...</p>
         </div>
 
         <!-- Mode Toggle -->
@@ -1031,7 +1183,7 @@
             </button>
             <button class="mode-btn" onclick="switchMode('admin')">
                 <span>🔒</span>
-                <span>Admin</span>
+                <span>Admin-Menü</span>
             </button>
         </div>
 
@@ -1164,37 +1316,37 @@
                     <div class="hoodie-type-card" onclick="selectType(1, this, 'Basic Hoodie')">
                         <div class="hoodie-type-icon">👕</div>
                         <div class="hoodie-type-name">Basic Hoodie</div>
-                       
+                    
                     </div>
                     <div class="hoodie-type-card" onclick="selectType(2, this, 'Basic ZIP Hoodie')">
                         <div class="hoodie-type-icon">🧥</div>
                         <div class="hoodie-type-name">Basic ZIP Hoodie</div>
-                        
+                     
                     </div>
                     <div class="hoodie-type-card" onclick="selectType(3, this, 'Basic Sweater')">
                         <div class="hoodie-type-icon">👔</div>
                         <div class="hoodie-type-name">Basic Sweater</div>
-                        
+                  
                     </div>
                     <div class="hoodie-type-card" onclick="selectType(4, this, 'Heavyweight Signatur Oversize Hoodie')">
                         <div class="hoodie-type-icon">💪</div>
                         <div class="hoodie-type-name">Heavyweight Signatur Oversize Hoodie</div>
-                      
+              
                     </div>
                     <div class="hoodie-type-card" onclick="selectType(5, this, 'Heavyweight Signatur Oversize Zip Hoodie')">
                         <div class="hoodie-type-icon">🔥</div>
                         <div class="hoodie-type-name">Heavyweight Signatur Oversize Zip Hoodie</div>
-                       
+               
                     </div>
                     <div class="hoodie-type-card" onclick="selectType(6, this, 'Normal Oversize Hoodie')">
                         <div class="hoodie-type-icon">🌟</div>
                         <div class="hoodie-type-name">Normal Oversize Hoodie</div>
-                     
+                   
                     </div>
                     <div class="hoodie-type-card" onclick="selectType(7, this, 'Ultra Heavy Oversize Hoodie')">
                         <div class="hoodie-type-icon">⚡</div>
                         <div class="hoodie-type-name">Ultra Heavy Oversize Hoodie</div>
-                   
+                  
                     </div>
                 </div>
             </div>
@@ -1250,7 +1402,7 @@
                 <h2 style="margin-bottom: 32px; background: linear-gradient(135deg, var(--primary-light), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🔒 Admin Login</h2>
                 <input type="password" id="adminPassword" class="name-input" placeholder="Passwort" style="width: 100%;">
                 <button class="submit-btn" onclick="adminLogin()" style="width: 100%; margin: 24px 0;">Einloggen</button>
-                <p style="color: var(--text-light); font-size: 14px;">Standard-Passwort: onkelvononkel</p>
+                <p style="color: var(--text-light); font-size: 14px;">Standard-Passwort: Das willst du wissen? Wirst du nie erfahren...</p>
             </div>
 
             <div class="admin-dashboard" id="adminDashboard">
@@ -1297,6 +1449,56 @@
                     </button>
                 </div>
 
+                <!-- Detaillierte Abstimmungsstatistik -->
+                <div class="section-card statistics-section">
+                    <h3>📊 Detaillierte Abstimmungsstatistik</h3>
+                    
+                    <div class="vote-stats-grid">
+                        <!-- Designs Statistik -->
+                        <div class="vote-stat-card">
+                            <div class="vote-stat-header">
+                                <div class="vote-stat-title">🎨 Designs</div>
+                                <div class="vote-stat-total" id="designsTotal">0 Stimmen</div>
+                            </div>
+                            <div id="designsStats">
+                                <div class="no-votes-message" style="margin-top: 20px;">
+                                    <h4>Noch keine Abstimmungen</h4>
+                                    <p>Sobald jemand abstimmt, erscheinen hier die Statistiken.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hoodie-Typen Statistik -->
+                        <div class="vote-stat-card">
+                            <div class="vote-stat-header">
+                                <div class="vote-stat-title">👕 Hoodie-Typen</div>
+                                <div class="vote-stat-total" id="typesTotal">0 Stimmen</div>
+                            </div>
+                            <div id="typesStats">
+                                <div class="no-votes-message" style="margin-top: 20px;">
+                                    <h4>Noch keine Abstimmungen</h4>
+                                    <p>Sobald jemand abstimmt, erscheinen hier die Statistiken.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Farben Statistik -->
+                        <div class="vote-stat-card">
+                            <div class="vote-stat-header">
+                                <div class="vote-stat-title">🎨 Farben</div>
+                                <div class="vote-stat-total" id="colorsTotal">0 Stimmen</div>
+                            </div>
+                            <div id="colorsStats">
+                                <div class="no-votes-message" style="margin-top: 20px;">
+                                    <h4>Noch keine Abstimmungen</h4>
+                                    <p>Sobald jemand abstimmt, erscheinen hier die Statistiken.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bestellungsliste -->
                 <div class="voters-list">
                     <h3>📋 Alle Bestellungen</h3>
                     <div id="votersList"></div>
@@ -1375,10 +1577,15 @@
 
         // Update Progress
         function updateProgress() {
-            document.getElementById('step1').classList.toggle('completed', currentSelection.design !== null);
-            document.getElementById('step2').classList.toggle('completed', currentSelection.type !== null);
-            document.getElementById('step3').classList.toggle('completed', currentSelection.color !== null);
-            document.getElementById('step4').classList.toggle('completed', 
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            const step3 = document.getElementById('step3');
+            const step4 = document.getElementById('step4');
+            
+            if (step1) step1.classList.toggle('completed', currentSelection.design !== null);
+            if (step2) step2.classList.toggle('completed', currentSelection.type !== null);
+            if (step3) step3.classList.toggle('completed', currentSelection.color !== null);
+            if (step4) step4.classList.toggle('completed', 
                 currentSelection.design && currentSelection.type && currentSelection.color && currentSelection.voterName);
         }
 
@@ -1427,26 +1634,6 @@
                 submitBtn.disabled = true;
             }
         }
-
-        // Name input listener
-        document.addEventListener('DOMContentLoaded', function() {
-            initColors();
-            loadVotes();
-            updateProgress();
-            
-            document.getElementById('voterName').addEventListener('input', function() {
-                currentSelection.voterName = this.value.trim();
-                updateProgress();
-                checkCompletion();
-            });
-
-            // Enter-Taste für Admin-Login
-            document.getElementById('adminPassword').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    adminLogin();
-                }
-            });
-        });
 
         // Submit Vote
         function submitVote() {
@@ -1538,6 +1725,119 @@
             return `${day}.${month}.${year} um ${hours}:${minutes} Uhr`;
         }
 
+        // Get Color Hex by Name
+        function getColorHex(colorName) {
+            const color = colors.find(c => c.name === colorName);
+            return color ? color.hex : '#cccccc';
+        }
+
+        // Calculate and Display Statistics
+        function calculateStatistics() {
+            const votes = loadVotes();
+            const totalVotes = votes.length;
+            
+            if (totalVotes === 0) {
+                showEmptyStats();
+                return;
+            }
+
+            // Designs zählen
+            const designCounts = {};
+            const typeCounts = {};
+            const colorCounts = {};
+            
+            votes.forEach(vote => {
+                designCounts[vote.designName] = (designCounts[vote.designName] || 0) + 1;
+                typeCounts[vote.typeName] = (typeCounts[vote.typeName] || 0) + 1;
+                colorCounts[vote.colorName] = (colorCounts[vote.colorName] || 0) + 1;
+            });
+
+            // Designs berechnen und anzeigen
+            updateStatsSection('designsStats', designCounts, totalVotes, 'designsTotal');
+            
+            // Hoodie-Typen berechnen und anzeigen
+            updateStatsSection('typesStats', typeCounts, totalVotes, 'typesTotal');
+            
+            // Farben berechnen und anzeigen
+            updateStatsSection('colorsStats', colorCounts, totalVotes, 'colorsTotal');
+        }
+
+        function updateStatsSection(elementId, counts, totalVotes, totalElementId) {
+            const container = document.getElementById(elementId);
+            const totalElement = document.getElementById(totalElementId);
+            
+            totalElement.textContent = `${totalVotes} Stimme${totalVotes !== 1 ? 'n' : ''}`;
+            
+            // In Array umwandeln und sortieren (meiste Stimmen zuerst)
+            const items = Object.entries(counts).map(([name, count]) => ({
+                name,
+                count,
+                percent: ((count / totalVotes) * 100).toFixed(1)
+            }));
+            
+            items.sort((a, b) => b.count - a.count);
+            
+            // Finde die höchste Stimmenzahl für "Leader"-Markierung
+            const maxCount = Math.max(...items.map(item => item.count));
+            
+            // HTML generieren
+            const isColorsSection = elementId === 'colorsStats';
+            
+            container.innerHTML = items.map((item, index) => {
+                const isLeader = item.count === maxCount;
+                const leaderClass = isLeader ? 'vote-stat-leader' : '';
+                
+                return `
+                    <div class="vote-stat-item ${leaderClass}">
+                        <div class="vote-stat-info">
+                            ${isColorsSection ? 
+                                `<div class="vote-stat-color" style="background: ${getColorHex(item.name)};"></div>` : 
+                                ''
+                            }
+                            <div class="vote-stat-name">
+                                ${item.name}
+                                ${isLeader ? '<span class="vote-stat-leader-badge">Favorit</span>' : ''}
+                            </div>
+                        </div>
+                        <div class="vote-stat-numbers">
+                            <div class="vote-stat-bar-container">
+                                <div class="vote-stat-bar" style="width: 0%" id="bar-${elementId}-${index}"></div>
+                            </div>
+                            <div class="vote-stat-count">${item.count}x</div>
+                            <div class="vote-stat-percent">${item.percent}%</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Für jede Statistikleiste die Animation hinzufügen
+            setTimeout(() => {
+                items.forEach((item, index) => {
+                    const bar = document.getElementById(`bar-${elementId}-${index}`);
+                    if (bar) {
+                        bar.style.width = `${item.percent}%`;
+                    }
+                });
+            }, 100);
+        }
+
+        function showEmptyStats() {
+            ['designsStats', 'typesStats', 'colorsStats'].forEach(id => {
+                const container = document.getElementById(id);
+                container.innerHTML = `
+                    <div class="no-votes-message" style="margin-top: 20px;">
+                        <h4>Noch keine Abstimmungen</h4>
+                        <p>Sobald jemand abstimmt, erscheinen hier die Statistiken.</p>
+                    </div>
+                `;
+            });
+            
+            ['designsTotal', 'typesTotal', 'colorsTotal'].forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.textContent = '0 Stimmen';
+            });
+        }
+
         // Load Admin Stats
         function loadAdminStats() {
             const votes = loadVotes();
@@ -1559,10 +1859,13 @@
                         <p>Sobald jemand eine Bestellung aufgibt, erscheint sie hier.</p>
                     </div>
                 `;
+                
+                // Leere Statistiken anzeigen
+                showEmptyStats();
                 return;
             }
 
-            // Count designs
+            // Count designs, types, colors
             const designCount = {};
             const typeCount = {};
             const colorCount = {};
@@ -1578,16 +1881,36 @@
             const topType = Object.keys(typeCount).reduce((a, b) => typeCount[a] > typeCount[b] ? a : b);
             const topColor = Object.keys(colorCount).reduce((a, b) => colorCount[a] > colorCount[b] ? a : b);
 
-            document.getElementById('leadingDesign').textContent = topDesign + ` (${designCount[topDesign]}x)`;
-            document.getElementById('leadingType').textContent = topType + ` (${typeCount[topType]}x)`;
-            document.getElementById('leadingColor').textContent = topColor + ` (${colorCount[topColor]}x)`;
+            // Prozent für Leader berechnen
+            const topDesignPercent = ((designCount[topDesign] / votes.length) * 100).toFixed(1);
+            const topTypePercent = ((typeCount[topType] / votes.length) * 100).toFixed(1);
+            const topColorPercent = ((colorCount[topColor] / votes.length) * 100).toFixed(1);
+
+            // Leader anzeigen mit Prozent
+            document.getElementById('leadingDesign').innerHTML = `
+                <div style="font-size: 20px; margin-bottom: 4px;">${topDesign}</div>
+                <div style="font-size: 14px; color: var(--primary-light);">${designCount[topDesign]}x (${topDesignPercent}%)</div>
+            `;
+            
+            document.getElementById('leadingType').innerHTML = `
+                <div style="font-size: 20px; margin-bottom: 4px;">${topType}</div>
+                <div style="font-size: 14px; color: var(--primary-light);">${typeCount[topType]}x (${topTypePercent}%)</div>
+            `;
+            
+            document.getElementById('leadingColor').innerHTML = `
+                <div style="font-size: 20px; margin-bottom: 4px;">${topColor}</div>
+                <div style="font-size: 14px; color: var(--primary-light);">${colorCount[topColor]}x (${topColorPercent}%)</div>
+            `;
+
+            // Detaillierte Statistiken berechnen
+            calculateStatistics();
 
             // Display voters list - NEUESTE ZUERST
             const votersList = document.getElementById('votersList');
-            const reversedVotes = [...votes].reverse(); // Neueste zuerst
+            const reversedVotes = [...votes].reverse();
             
             votersList.innerHTML = reversedVotes.map((vote, index) => {
-                const isNew = index < 3; // Markiere die 3 neuesten als "NEU"
+                const isNew = index < 3;
                 return `
                     <div class="voter-item">
                         <div class="voter-header">
@@ -1658,6 +1981,24 @@
                 }
             }
         }
+
+        // Initialisierung
+        document.addEventListener('DOMContentLoaded', function() {
+            initColors();
+            updateProgress();
+            
+            document.getElementById('voterName').addEventListener('input', function() {
+                currentSelection.voterName = this.value.trim();
+                updateProgress();
+                checkCompletion();
+            });
+
+            document.getElementById('adminPassword').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    adminLogin();
+                }
+            });
+        });
     </script>
 </body>
 </html>
