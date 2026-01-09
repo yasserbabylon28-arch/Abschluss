@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abschlusshoodies 2025 - Premium Konfigurator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --dark: #0f172a;
+            --dark-lighter: #1e293b;
+            --dark-card: #334155;
+            --light: #f1f5f9;
+            --white: #ffffff;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-lighter) 50%, var(--dark) 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            animation: backgroundMove 20s ease infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes backgroundMove {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 60px 0 40px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            display: inline-block;
+            font-size: 48px;
+            margin-bottom: 16px;
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: clamp(16px, 3vw, 24px);
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Mode Toggle */
+        .mode-toggle {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 48px;
+            animation: fadeIn 1s ease 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .mode-btn {
+            padding: 16px 32px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            border-radius: var(--radius-lg);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mode-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .mode-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-color: transparent;
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Section Card */
+        .section-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-xl);
+            animation: fadeInUp 0.8s ease both;
+            transition: var(--transition);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-xl), 0 0 50px rgba(99, 102, 241, 0.2);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-icon {
+            font-size: 36px;
+            filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5));
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--white), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Design Gallery */
+        .designs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .design-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .design-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0), rgba(139, 92, 246, 0));
+            transition: var(--transition);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .design-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .design-card:hover::before {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+        }
+
+        .design-card.selected {
+            border-color: var(--primary);
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.5), inset 0 0 40px rgba(99, 102, 241, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .design-card.selected::before {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+        }
+
+        .design-image-container {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--dark-card), var(--dark-lighter));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .design-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .design-card:hover .design-image {
+            transform: scale(1.1);
+        }
+
+        .design-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 14px;
+            display: none;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+            animation: badgePop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes badgePop {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+
+        .design-card.selected .design-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .design-info {
+            padding: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .design-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .design-desc {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Hoodie Types */
+        .hoodie-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .hoodie-type-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hoodie-type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0), rgba(139, 92, 246, 0));
+            transition: var(--transition);
+        }
+
+        .hoodie-type-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-light);
+            box-shadow: 0 12px 24px rgba(99, 102, 241, 0.2);
+        }
+
+        .hoodie-type-card:hover::before {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+        }
+
+        .hoodie-type-card.selected {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .hoodie-type-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.3));
+            display: inline-block;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .hoodie-type-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 12px;
+            line-height: 1.4;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hoodie-type-price {
+            font-size: 24px;
+            color: var(--primary-light);
+            font-weight: 800;
+        }
+
+        /* Colors */
+        .colors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 16px;
+        }
+
+        .color-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .color-option:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: scale(1.05);
+        }
+
+        .color-swatch {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .color-swatch::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .color-option.selected .color-swatch {
+            transform: scale(1.1);
+            box-shadow: 0 0 24px rgba(99, 102, 241, 0.6), 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .color-option.selected .color-swatch::after {
+            opacity: 1;
+        }
+
+        .color-name {
+            font-size: 12px;
+            color: var(--text-light);
+            text-align: center;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .color-option.selected .color-name {
+            color: var(--primary-light);
+            font-weight: 700;
+        }
+
+        /* Summary */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 28px;
+            border-radius: var(--radius-lg);
+            transition: var(--transition);
+        }
+
+        .summary-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .summary-label {
+            color: var(--text-light);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .summary-value {
+            color: var(--white);
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* Vote Section */
+        .vote-section {
+            text-align: center;
+        }
+
+        .vote-section h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--white), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .vote-section p {
+            color: var(--text-light);
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        .name-input {
+            padding: 18px 24px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+            font-size: 18px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 24px;
+            display: block;
+            color: var(--white);
+            font-weight: 500;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .name-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .name-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .submit-btn {
+            padding: 20px 48px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover:not(:disabled)::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.6);
+        }
+
+        .submit-btn:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            background: rgba(255, 255, 255, 0.1);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: var(--white);
+            padding: 20px 32px;
+            border-radius: var(--radius-lg);
+            margin: 24px auto 0;
+            max-width: 500px;
+            display: none;
+            font-weight: 600;
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideInScale 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes slideInScale {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Admin View */
+        .admin-view {
+            display: none;
+        }
+
+        .admin-view.active {
+            display: block;
+        }
+
+        .admin-login {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 48px;
+            border-radius: var(--radius-xl);
+            max-width: 450px;
+            margin: 100px auto;
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .admin-dashboard {
+            display: none;
+        }
+
+        .admin-dashboard.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .dashboard-header h2 {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .stat-card h3 {
+            color: var(--primary-light);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--white);
+            margin: 16px 0;
+            background: linear-gradient(135deg, var(--white), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .voters-list {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            margin-top: 32px;
+        }
+
+        .voters-list h3 {
+            color: var(--primary-light);
+            margin-bottom: 24px;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .voter-item {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 16px;
+            transition: var(--transition);
+        }
+
+        .voter-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .voter-item:last-child {
+            border-bottom: none;
+        }
+
+        .export-btn, .reset-btn {
+            padding: 16px 32px;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 24px 8px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .export-btn {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.6);
+        }
+
+        .reset-btn {
+            background: linear-gradient(135deg, var(--danger), #dc2626);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+        }
+
+        .reset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(239, 68, 68, 0.6);
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .progress-step.completed {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            border-color: var(--primary);
+            color: var(--white);
+        }
+
+        .progress-step-icon {
+            font-size: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .section-card {
+                padding: 24px;
+            }
+
+            .designs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hoodie-types-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .voter-item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .colors-grid {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
+
+            .mode-toggle {
+                flex-direction: column;
+            }
+
+            .mode-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: var(--white);
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">👕</div>
+            <h1>Abschlusshoodies 2025</h1>
+            <p class="subtitle">Premium Konfigurator mit Style</p>
+        </div>
+
+        <!-- Mode Toggle -->
+        <div class="mode-toggle">
+            <button class="mode-btn active" onclick="switchMode('user')">
+                <span>🎨</span>
+                <span>Konfigurator</span>
+            </button>
+            <button class="mode-btn" onclick="switchMode('admin')">
+                <span>👑</span>
+                <span>Admin</span>
+            </button>
+        </div>
+
+        <!-- USER VIEW -->
+        <div class="user-view">
+            <!-- Progress Indicator -->
+            <div class="progress-indicator">
+                <div class="progress-step" id="step1">
+                    <span class="progress-step-icon">🎨</span>
+                    <span>Design</span>
+                </div>
+                <div class="progress-step" id="step2">
+                    <span class="progress-step-icon">👕</span>
+                    <span>Typ</span>
+                </div>
+                <div class="progress-step" id="step3">
+                    <span class="progress-step-icon">🌈</span>
+                    <span>Farbe</span>
+                </div>
+                <div class="progress-step" id="step4">
+                    <span class="progress-step-icon">✅</span>
+                    <span>Bestätigung</span>
+                </div>
+            </div>
+
+            <!-- Design Selection -->
+            <div class="section-card" style="animation-delay: 0.1s">
+                <div class="section-header">
+                    <span class="section-icon">🎨</span>
+                    <h2>Wähle dein Design</h2>
+                </div>
+                <div class="designs-grid">
+                    <div class="design-card" onclick="selectDesign(1, 'Spotify Style', this)">
+                        <div class="design-image-container">
+                            <div class="design-badge">✓ Gewählt</div>
+                            <img src="https://abschluss-pullover.de/media/2e/1a/43/1761920779/SONG%20PLAYLIST%20AK_HOODIE.png?ts=1762352246" alt="Spotify Style" class="design-image">
+                        </div>
+                        <div class="design-info">
+                            <div class="design-name">Spotify Style</div>
+                            <div class="design-desc">Klassenliste als Musik-Playlist mit Play-Button</div>
+                        </div>
+                    </div>
+
+                    <div class="design-card" onclick="selectDesign(2, 'Modern Typography', this)">
+                        <div class="design-image-container">
+                            <div class="design-badge">✓ Gewählt</div>
+                            <img src="https://abschluss-pullover.de/cdn-cgi/image/width%3D800%2Cheight%3D800%2Cquality%3D80%2Cformat%3Dwebp%2Conerror%3Dredirect/media/0f/2c/c8/1734012538/NEWSTYLE%20AK_HOODIE.png" alt="Modern Typography" class="design-image">
+                        </div>
+                        <div class="design-info">
+                            <div class="design-name">NEWSTYLE AK 1073.1</div>
+                            <div class="design-desc">Minimalistisch mit großem gestapeltem Text</div>
+                        </div>
+                    </div>
+
+                    <div class="design-card" onclick="selectDesign(3, 'Finally Free', this)">
+                        <div class="design-image-container">
+                            <div class="design-badge">✓ Gewählt</div>
+                            <img src="https://abschluss-pullover.de/media/84/d8/d0/1709906924/FINALLY%20FREE%20X%20NK_HOODIE.png?ts=1755078599" alt="Finally Free" class="design-image">
+                        </div>
+                        <div class="design-info">
+                            <div class="design-name">TSCHÜSSI X FINALLY FREE 935.2</div>
+                            <div class="design-desc">Mit Auto-Illustration & "Finally Free" Text</div>
+                        </div>
+                    </div>
+
+                    <div class="design-card" onclick="selectDesign(4, 'Porsche Blueprint', this)">
+                        <div class="design-image-container">
+                            <div class="design-badge">✓ Gewählt</div>
+                            <img src="https://abschluss-pullover.de/cdn-cgi/image/width%3D800%2Cheight%3D800%2Cquality%3D80%2Cformat%3Dwebp%2Conerror%3Dredirect/media/c4/g0/b2/1762791264/SPORT%20AUTO%20AK_HOODIE.png" alt="Porsche Blueprint" class="design-image">
+                        </div>
+                        <div class="design-info">
+                            <div class="design-name">Porsche Blueprint</div>
+                            <div class="design-desc">Technische Zeichnung mit Porsche & Namen</div>
+                        </div>
+                    </div>
+
+                    <div class="design-card" onclick="selectDesign(5, 'Newspaper Edition', this)">
+                        <div class="design-image-container">
+                            <div class="design-badge">✓ Gewählt</div>
+                            <img src="https://abschluss-pullover.de/media/b4/27/96/1715677054/TSCHUSSI%20HISTORY%20IS%20WRITTEN_HOODIE.png?ts=1755080997" alt="Newspaper Edition" class="design-image">
+                        </div>
+                        <div class="design-info">
+                            <div class="design-name">TSCHÜSSI HISTORY IS WRITTEN 1013.1</div>
+                            <div class="design-desc">Zeitung "The Next Best Generation"</div>
+                        </div>
+                    </div>
+
+                    <div class="design-card" onclick="selectDesign(6, 'Butterfly Premium', this)">
+                        <div class="design-image-container">
+                            <div class="design-badge">✓ Gewählt</div>
+                            <img src="https://abschluss-pullover.de/cdn-cgi/image/width%3D800%2Cheight%3D800%2Cquality%3D80%2Cformat%3Dwebp%2Conerror%3Dredirect/media/d2/f5/2d/1764845370/NEED%20MONEY%20FOR%20SPORT%20CAR_HOODIE.png" alt="Butterfly Premium" class="design-image">
+                        </div>
+                        <div class="design-info">
+                            <div class="design-name">NEED MONEY FOR SPORT CAR 911.1</div>
+                            <div class="design-desc">Elegant mit Schmetterling & goldenem Text</div>
+                        </div>
+                    </div>
+
+                    <div class="design-card" onclick="selectDesign(7, 'Tour Dates Edition', this)">
+                        <div class="design-image-container">
+                            <div class="design-badge">✓ Gewählt</div>
+                            <img src="https://abschluss-pullover.de/cdn-cgi/image/width%3D280%2Cheight%3D280%2Cquality%3D80%2Cformat%3Dwebp%2Conerror%3Dredirect/media/b1/20/97/1707229448/TOUR%20DATES_HOODIE.png" alt="Tour Dates Edition" class="design-image">
+                        </div>
+                        <div class="design-info">
+                            <div class="design-name">TOUR DATES</div>
+                            <div class="design-desc">Konzert-Tour Style mit wichtigen Schuldaten</div>
+                        </div>
+                    </div>
+
+                    <div class="design-card" onclick="selectDesign(8, 'Custom Design', this)">
+                        <div class="design-image-container">
+                            <div class="design-badge">✓ Gewählt</div>
+                            <img src="https://abschluss-pullover.de/cdn-cgi/image/width%3D280%2Cheight%3D280%2Cquality%3D80%2Cformat%3Dwebp%2Conerror%3Dredirect/media/eb/9b/ca/1708694323/TSCHUSSI%20BYE%20BYE%20ADIOS_HOODIE.png" alt="Custom Design" class="design-image">
+                        </div>
+                        <div class="design-info">
+                            <div class="design-name">TSCHÜSSI BYE BYE ADIOS 975.1</div>
+                            <div class="design-desc">Abschied, mit allen Namen und schönem Design</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hoodie Type -->
+            <div class="section-card" style="animation-delay: 0.2s">
+                <div class="section-header">
+                    <span class="section-icon">👕</span>
+                    <h2>Wähle deinen Hoodie-Typ</h2>
+                </div>
+                <div class="hoodie-types-grid">
+                    <div class="hoodie-type-card" onclick="selectType(1, this, 'Basic Hoodie', 29.99)">
+                        <div class="hoodie-type-icon">👕</div>
+                        <div class="hoodie-type-name">Basic Hoodie</div>
+                     
+                    </div>
+                    <div class="hoodie-type-card" onclick="selectType(2, this, 'Basic ZIP Hoodie', 34.99)">
+                        <div class="hoodie-type-icon">🧥</div>
+                        <div class="hoodie-type-name">Basic ZIP Hoodie</div>
+                        
+                    </div>
+                    <div class="hoodie-type-card" onclick="selectType(3, this, 'Basic Sweater', 27.99)">
+                        <div class="hoodie-type-icon">👔</div>
+                        <div class="hoodie-type-name">Basic Sweater</div>
+                       
+                    </div>
+                    <div class="hoodie-type-card" onclick="selectType(4, this, 'Heavyweight Signatur Oversize Hoodie', 44.99)">
+                        <div class="hoodie-type-icon">🎽</div>
+                        <div class="hoodie-type-name">Heavyweight Signatur Oversize Hoodie</div>
+                        
+                    </div>
+                    <div class="hoodie-type-card" onclick="selectType(5, this, 'Heavyweight Signatur Oversize Zip Hoodie', 49.99)">
+                        <div class="hoodie-type-icon">🧥</div>
+                        <div class="hoodie-type-name">Heavyweight Signatur Oversize Zip Hoodie</div>
+                        
+                    </div>
+                    <div class="hoodie-type-card" onclick="selectType(6, this, 'Normal Oversize Hoodie', 37.99)">
+                        <div class="hoodie-type-icon">👕</div>
+                        <div class="hoodie-type-name">Normal Oversize Hoodie</div>
+                       
+                    </div>
+                    <div class="hoodie-type-card" onclick="selectType(7, this, 'Ultra Heavy Oversize Hoodie', 54.99)">
+                        <div class="hoodie-type-icon">🎿</div>
+                        <div class="hoodie-type-name">Ultra Heavy Oversize Hoodie</div>
+                   
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colors -->
+            <div class="section-card" style="animation-delay: 0.3s">
+                <div class="section-header">
+                    <span class="section-icon">🎨</span>
+                    <h2>Wähle deine Farbe</h2>
+                </div>
+                <div class="colors-grid" id="colorsGrid"></div>
+            </div>
+
+            <!-- Summary -->
+            <div class="section-card" style="animation-delay: 0.4s">
+                <div class="section-header">
+                    <span class="section-icon">📋</span>
+                    <h2>Deine Zusammenfassung</h2>
+                </div>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-label">Design</div>
+                        <div class="summary-value" id="selectedDesign">Bitte wählen</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-label">Hoodie-Typ</div>
+                        <div class="summary-value" id="selectedType">Bitte wählen</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-label">Farbe</div>
+                        <div class="summary-value" id="selectedColor">Bitte wählen</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vote -->
+            <div class="section-card vote-section" style="animation-delay: 0.5s">
+                <h2>✅ Auswahl bestätigen</h2>
+                <p>Gib deinen Namen ein und bestätige deine Konfiguration</p>
+                <input type="text" id="voterName" class="name-input" placeholder="Dein Name">
+                <button class="submit-btn" onclick="submitVote()" id="submitBtn" disabled>
+                    <span>Abstimmen</span>
+                </button>
+                <div class="success-message" id="successMsg">
+                    ✓ Perfekt! Deine Auswahl wurde gespeichert.
+                </div>
+            </div>
+        </div>
+
+        <!-- ADMIN VIEW -->
+        <div class="admin-view" id="adminView">
+            <div class="admin-login" id="adminLogin">
+                <h2 style="margin-bottom: 32px; background: linear-gradient(135deg, var(--primary-light), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🔐 Admin Login</h2>
+                <input type="password" id="adminPassword" class="name-input" placeholder="Passwort" style="width: 100%;">
+                <button class="submit-btn" onclick="adminLogin()" style="width: 100%; margin: 24px 0;">Einloggen</button>
+                <p style="color: var(--text-light); font-size: 14px;">Standard-Passwort: admin123</p>
+            </div>
+
+            <div class="admin-dashboard" id="adminDashboard">
+                <div class="dashboard-header">
+                    <h2>📊 Admin Dashboard</h2>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Gesamt Bestellungen</h3>
+                        <div class="stat-number" id="totalVotes">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Beliebtestes Design</h3>
+                        <div class="stat-number" id="leadingDesign" style="font-size: 24px;">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Top Hoodie-Typ</h3>
+                        <div class="stat-number" id="leadingType" style="font-size: 20px;">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Top Farbe</h3>
+                        <div class="stat-number" id="leadingColor" style="font-size: 24px;">-</div>
+                    </div>
+                </div>
+
+                <div class="voters-list">
+                    <h3>📋 Alle Bestellungen</h3>
+                    <div id="votersList"></div>
+                </div>
+
+                <div style="text-align: center; margin-top: 32px;">
+                    <button class="export-btn" onclick="exportToCSV()">
+                        <span>📥</span>
+                        <span>Als CSV exportieren</span>
+                    </button>
+                    <button class="reset-btn" onclick="resetAllVotes()">
+                        <span>🗑️</span>
+                        <span>Alle Stimmen löschen</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Komplette Farbpalette mit 33 Farben
+        const colors = [
+            { name: 'Jet Black', hex: '#0a0a0a' },
+            { name: 'Arctic White', hex: '#f8f8ff' },
+            { name: 'Ash', hex: '#b2beb5' },
+            { name: 'Heather Grey', hex: '#bfc1c2' },
+            { name: 'Steel Grey', hex: '#71797e' },
+            { name: 'Charcoal', hex: '#36454f' },
+            { name: 'Solid Charcoal', hex: '#424242' },
+            { name: 'Storm Grey', hex: '#717d8a' },
+            { name: 'Deep Black', hex: '#1a1a1a' },
+            { name: 'Black Smoke', hex: '#3a3a3a' },
+            { name: 'Dusty Green', hex: '#7c9873' },
+            { name: 'Kelly Green', hex: '#4cbb17' },
+            { name: 'Bottle Green', hex: '#006a4e' },
+            { name: 'Forest Green', hex: '#228b22' },
+            { name: 'Sun Yellow', hex: '#ffd700' },
+            { name: 'Natural Stone', hex: '#d4c5b9' },
+            { name: 'Desert Sand', hex: '#edc9af' },
+            { name: 'Mustard', hex: '#ffdb58' },
+            { name: 'Orange Crush', hex: '#ff8c42' },
+            { name: 'Fire Red', hex: '#e63946' },
+            { name: 'Burgundy', hex: '#800020' },
+            { name: 'Dusty Pink', hex: '#d4a5a5' },
+            { name: 'Baby Pink', hex: '#f4c2c2' },
+            { name: 'Hot Pink', hex: '#ff69b4' },
+            { name: 'Hawaiian Blue', hex: '#00ced1' },
+            { name: 'Sky Blue', hex: '#87ceeb' },
+            { name: 'Sapphire Blue', hex: '#0f52ba' },
+            { name: 'Royal Blue', hex: '#4169e1' },
+            { name: 'Airforce Blue', hex: '#5d8aa8' },
+            { name: 'Oxford Navy', hex: '#002147' },
+            { name: 'New French Navy', hex: '#0c1e42' },
+            { name: 'Digital Lavender', hex: '#c4a3c9' },
+            { name: 'Purple', hex: '#800080' }
+        ];
+
+        // State
+        let currentSelection = {
+            design: null,
+            designName: null,
+            type: null,
+            typeName: null,
+            price: 0,
+            color: null,
+            colorName: null,
+            voterName: ''
+        };
+
+        // Initialize colors
+        function initColors() {
+            const grid = document.getElementById('colorsGrid');
+            colors.forEach(color => {
+                const option = document.createElement('div');
+                option.className = 'color-option';
+                option.onclick = () => selectColor(color.name, color.hex, option);
+                
+                const needsBorder = ['Arctic White', 'Natural Stone', 'Desert Sand'].includes(color.name);
+                
+                option.innerHTML = `
+                    <div class="color-swatch" style="background: ${color.hex}; ${needsBorder ? 'border-color: rgba(255, 255, 255, 0.3);' : ''}"></div>
+                    <div class="color-name">${color.name}</div>
+                `;
+                grid.appendChild(option);
+            });
+        }
+
+        // Update Progress
+        function updateProgress() {
+            document.getElementById('step1').classList.toggle('completed', currentSelection.design !== null);
+            document.getElementById('step2').classList.toggle('completed', currentSelection.type !== null);
+            document.getElementById('step3').classList.toggle('completed', currentSelection.color !== null);
+            document.getElementById('step4').classList.toggle('completed', 
+                currentSelection.design && currentSelection.type && currentSelection.color && currentSelection.voterName);
+        }
+
+        // Select Design
+        function selectDesign(id, name, element) {
+            document.querySelectorAll('.design-card').forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+            currentSelection.design = id;
+            currentSelection.designName = name;
+            document.getElementById('selectedDesign').textContent = name;
+            updateProgress();
+            checkCompletion();
+        }
+
+        // Select Type
+        function selectType(id, element, name, price) {
+            document.querySelectorAll('.hoodie-type-card').forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+            currentSelection.type = id;
+            currentSelection.typeName = name;
+            currentSelection.price = price;
+            document.getElementById('selectedType').textContent = name;
+            updateProgress();
+            checkCompletion();
+        }
+
+        // Select Color
+        function selectColor(name, hex, element) {
+            document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            currentSelection.color = hex;
+            currentSelection.colorName = name;
+            document.getElementById('selectedColor').textContent = name;
+            updateProgress();
+            checkCompletion();
+        }
+
+        // Check if all selections are made
+        function checkCompletion() {
+            const nameInput = document.getElementById('voterName');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (currentSelection.design && currentSelection.type && currentSelection.color && nameInput.value.trim()) {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        }
+
+        // Name input listener
+        document.addEventListener('DOMContentLoaded', function() {
+            initColors();
+            loadVotes();
+            updateProgress();
+            
+            document.getElementById('voterName').addEventListener('input', function() {
+                currentSelection.voterName = this.value.trim();
+                updateProgress();
+                checkCompletion();
+            });
+        });
+
+        // Submit Vote
+        function submitVote() {
+            if (!currentSelection.design || !currentSelection.type || !currentSelection.color || !currentSelection.voterName) {
+                alert('Bitte alle Felder ausfüllen!');
+                return;
+            }
+
+            const votes = JSON.parse(localStorage.getItem('hoodieVotes') || '[]');
+            votes.push({
+                ...currentSelection,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('hoodieVotes', JSON.stringify(votes));
+
+            document.getElementById('successMsg').classList.add('show');
+            setTimeout(() => {
+                document.getElementById('successMsg').classList.remove('show');
+                resetForm();
+            }, 3000);
+        }
+
+        // Reset Form
+        function resetForm() {
+            currentSelection = {
+                design: null,
+                designName: null,
+                type: null,
+                typeName: null,
+                price: 0,
+                color: null,
+                colorName: null,
+                voterName: ''
+            };
+            
+            document.querySelectorAll('.design-card, .hoodie-type-card, .color-option').forEach(el => el.classList.remove('selected'));
+            document.getElementById('voterName').value = '';
+            document.getElementById('selectedDesign').textContent = 'Bitte wählen';
+            document.getElementById('selectedType').textContent = 'Bitte wählen';
+            document.getElementById('selectedColor').textContent = 'Bitte wählen';
+            document.getElementById('submitBtn').disabled = true;
+            updateProgress();
+        }
+
+        // Switch Mode
+        function switchMode(mode) {
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.closest('.mode-btn').classList.add('active');
+
+            if (mode === 'user') {
+                document.querySelector('.user-view').style.display = 'block';
+                document.getElementById('adminView').classList.remove('active');
+            } else {
+                document.querySelector('.user-view').style.display = 'none';
+                document.getElementById('adminView').classList.add('active');
+            }
+        }
+
+        // Admin Login
+        function adminLogin() {
+            const password = document.getElementById('adminPassword').value;
+            if (password === 'onkelvononkel') {
+                document.getElementById('adminLogin').style.display = 'none';
+                document.getElementById('adminDashboard').classList.add('active');
+                loadAdminStats();
+            } else {
+                alert('Falsches Passwort!');
+            }
+        }
+
+        // Load Votes
+        function loadVotes() {
+            return JSON.parse(localStorage.getItem('hoodieVotes') || '[]');
+        }
+
+        // Load Admin Stats
+        function loadAdminStats() {
+            const votes = loadVotes();
+            
+            // Total votes
+            document.getElementById('totalVotes').textContent = votes.length;
+
+            if (votes.length === 0) {
+                document.getElementById('leadingDesign').textContent = '-';
+                document.getElementById('leadingType').textContent = '-';
+                document.getElementById('leadingColor').textContent = '-';
+                document.getElementById('votersList').innerHTML = '<p style="color: var(--text-light); text-align: center; padding: 24px;">Noch keine Bestellungen</p>';
+                return;
+            }
+
+            // Count designs
+            const designCount = {};
+            const typeCount = {};
+            const colorCount = {};
+
+            votes.forEach(vote => {
+                designCount[vote.designName] = (designCount[vote.designName] || 0) + 1;
+                typeCount[vote.typeName] = (typeCount[vote.typeName] || 0) + 1;
+                colorCount[vote.colorName] = (colorCount[vote.colorName] || 0) + 1;
+            });
+
+            // Find leaders
+            const topDesign = Object.keys(designCount).reduce((a, b) => designCount[a] > designCount[b] ? a : b);
+            const topType = Object.keys(typeCount).reduce((a, b) => typeCount[a] > typeCount[b] ? a : b);
+            const topColor = Object.keys(colorCount).reduce((a, b) => colorCount[a] > colorCount[b] ? a : b);
+
+            document.getElementById('leadingDesign').textContent = topDesign + ` (${designCount[topDesign]}x)`;
+            document.getElementById('leadingType').textContent = topType + ` (${typeCount[topType]}x)`;
+            document.getElementById('leadingColor').textContent = topColor + ` (${colorCount[topColor]}x)`;
+
+            // Display voters list
+            const votersList = document.getElementById('votersList');
+            votersList.innerHTML = votes.map((vote, index) => `
+                <div class="voter-item">
+                    <strong>${vote.voterName}</strong>
+                    <span>${vote.designName}</span>
+                    <span>${vote.typeName}</span>
+                    <span>${vote.colorName}</span>
+                </div>
+            `).join('');
+        }
+
+        // Export to CSV
+        function exportToCSV() {
+            const votes = loadVotes();
+            if (votes.length === 0) {
+                alert('Keine Daten zum Exportieren!');
+                return;
+            }
+
+            let csv = 'Name,Design,Hoodie-Typ,Farbe,Preis,Zeitstempel\n';
+            votes.forEach(vote => {
+                csv += `"${vote.voterName}","${vote.designName}","${vote.typeName}","${vote.colorName}","${vote.price}","${vote.timestamp}"\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'hoodie-bestellungen-' + new Date().toISOString().split('T')[0] + '.csv';
+            a.click();
+        }
+
+        // Reset All Votes
+        function resetAllVotes() {
+            if (confirm('Wirklich ALLE Stimmen löschen? Dies kann nicht rückgängig gemacht werden!')) {
+                localStorage.removeItem('hoodieVotes');
+                loadAdminStats();
+                alert('Alle Stimmen wurden gelöscht!');
+            }
+        }
+    </script>
+</body>
+</html>
